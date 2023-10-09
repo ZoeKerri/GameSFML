@@ -1,0 +1,38 @@
+﻿  main.cpp
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(16,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(16,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(21,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(21,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(26,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(26,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(31,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(31,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(36,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(36,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(41,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(41,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(46,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(46,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(51,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(51,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(56,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(56,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(90,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(90,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(111,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(111,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(131,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(131,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(17,49): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(17,29): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\main.cpp(4,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(493): warning C4715: 'Cre_Buttons::is_Win': not all control paths return a value
+  FLOYD.vcxproj -> E:\HK3- HUIT\Floyd_SFML-main\Debug\FLOYD.exe

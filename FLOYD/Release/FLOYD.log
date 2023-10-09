@@ -1,0 +1,40 @@
+﻿  FLOYD.cpp
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Function.h(25,15): warning C4018: '<=': signed/unsigned mismatch
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mywindow.h(214,55): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mywindow.h(315,56): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\UI.h(260,39): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mainmenu.h(8,25): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mainmenu.h(9,56): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mainmenu.h(11,25): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mainmenu.h(12,56): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mainmenu.h(14,25): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mainmenu.h(15,56): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 477 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  FLOYD.vcxproj -> E:\HK3- HUIT\Floyd_SFML-main\Release\FLOYD.exe

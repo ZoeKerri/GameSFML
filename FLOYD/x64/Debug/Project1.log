@@ -1,0 +1,56 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Project1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  floyd.cpp
+E:\Học sfml\Project1\Project1\Function.h(9,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\Function.h(23,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\Function.h(25,53): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\mywindow.h(214,55): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\Học sfml\Project1\Project1\mywindow.h(270,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\mywindow.h(315,56): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\Học sfml\Project1\Project1\UI.h(134,48): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\UI.h(260,39): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\Học sfml\Project1\Project1\UI.h(268,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(16,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(16,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(21,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(21,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(26,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(26,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(31,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(31,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(36,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(36,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(41,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(41,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(46,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(46,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(51,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(51,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(56,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\ModeMenu.h(56,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(86,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(86,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(112,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(112,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(137,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(137,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(270,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(279,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(290,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\Create_Buttons.h(425,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\GameLoop.h(17,49): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\Học sfml\Project1\Project1\GameLoop.h(17,29): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\Học sfml\Project1\Project1\floyd.cpp(20,30): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\floyd.cpp(40,94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\floyd.cpp(98,44): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\Học sfml\Project1\Project1\floyd.cpp(103,44): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
+  Project1.vcxproj -> E:\Học sfml\Project1\x64\Debug\GameSFML.exe
