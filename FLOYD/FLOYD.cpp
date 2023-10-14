@@ -5,11 +5,11 @@
 //#include<string>
 //#include"mywindow.h"
 //#include"Function.h"
-//#include "game.h"
+//#include "GameLoop.h"
 //#define pause system("pause")
 //int main()
 //{
-//    game game;
+//    GameLoop game;
 //    resizeConsole(120, 29);
 //    SetConsoleTitle(L"Thuat Toan FLOYD");
 //    SetCenterConsole();
@@ -110,7 +110,7 @@
 //                        UI_TruyVet(g);
 //                        break;
 //                    case 4:
-//                        game.gameloop(800,800,"Quang's House");
+//                        game.gameloop();//co 1 bug o day la khi thoat ra roi vo lai thi no tu dong chuyen sang mode menu luon
 //                        break;
 //                    case 5:
 //                        UI_CTT(g.Length);

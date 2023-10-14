@@ -2,24 +2,24 @@
 #include<iostream>
 #include"SFML/Graphics.hpp"
 #include "menu.h"
-#include "button.h"
-#include "ModeMenu.h"
-#include "map.h"
+#include "ModeMenu.h"//class tạo modemenu
+#include "map.h"//class tạo map
 #include "Create_Buttons.h"//class này bao gồm việc tạo nút và các thao tác với nút
-class Game {
+#include "Result_Window.h"
+class GameLoop {
 public:
 	void gameloop()
-
 	{
 		int menu_state = 0;//chuyen doi giua cac trang thai menu: main, mode va vao gameplay
-		sf::RenderWindow window(sf::VideoMode(1260, 800), "Lan's Home", sf::Style::Close | sf::Style::Titlebar);
-		// ham destructor thi hoc r nhung chua xai cai quen de nghien cuu sau
-		Menu Menu(window.getSize().x, window.getSize().y);//ham constructor chi duoc goi 1 lan 
+		sf::RenderWindow window(sf::VideoMode(1260, 800), "The ", sf::Style::Close | sf::Style::Titlebar);
+		window.setFramerateLimit(30);
+		Menu Menu(window.getSize().x, window.getSize().y);
 		ModeMenu ModeMenu(window.getSize().x, window.getSize().y);
 		Map map;
 		Cre_Buttons Game_Buttons;
 		sf::Font font;
 		font.loadFromFile("arial.ttf");
+		Result_Window child(400, 100, window.getSize().x/2, 50, 15, font, sf::Color::White, sf::Color::Black);//400,100 la kich thuoc childwindow, 50 la vi tri cua y dang le la 0 nhung co setorigin nen phai dat la 50
 		pair <int, int> start_finish;
 		int start = start_finish.first;
 		int finish = start_finish.second;
@@ -33,6 +33,11 @@ public:
 				{
 					switch (event.type)
 					{
+					case sf::Event::Closed:
+					{
+						window.close();
+						break;
+					}
 					case::sf::Event::KeyReleased:
 					{
 						switch (event.key.code)// .code thì chứa dữ liệu dạng enum trong sf::keyboard còn .scancode là thuộc dạng nguyên nó chỉ các phím trên bàn phím như WASD
@@ -54,12 +59,11 @@ public:
 							case 0:
 							{
 								menu_state = 1;
-								window.clear();
 								break;
 							}
 							case 1:
 							{
-								// đây là options k biết làm cái gì chắc để trống 
+								// đây là hướng dẫn - ta sẽ hiển thị cách chơi ở đây 
 								std::cout << "Options button is pressed" << std::endl;
 								break;
 							}
@@ -70,13 +74,6 @@ public:
 							}
 							}
 
-							break;//break ở đây để thoát khỏi cái case sf::Event::KeyRelease này 
-							//nêu k có break thì nó sẽ chạy đến cái case tiếp theo nên cái window nó mới bị đóng.
-
-						}
-						case sf::Event::Closed:
-						{
-							window.close();
 						}
 						}
 					}
@@ -90,6 +87,11 @@ public:
 				{
 					switch (event.type)
 					{
+					case sf::Event::Closed:
+					{
+						window.close();
+						break;
+					}
 					case::sf::Event::KeyReleased:
 					{
 						switch (event.key.code)// .code thì chứa dữ liệu dạng enum trong sf::keyboard còn .scancode là thuộc dạng nguyên nó chỉ các phím trên bàn phím như WASD
@@ -141,21 +143,17 @@ public:
 							start = start_finish.first;
 							finish = start_finish.second;
 							Game_Buttons.set_Mode_Matrix();
+							vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
+							child.set_trace_to_text(start, finish, matrix_trace);
 							break;
 						}
 						}
 
-						break;
-					case sf::Event::Closed:
-					{
-						window.close();
-					}
 					}
 					}
 					window.clear();
 					ModeMenu.drawto(window);
 					window.display();
-					break;
 				}
 				if (menu_state == 2)//hien map va cac button vao day
 				{
@@ -169,39 +167,75 @@ public:
 					}
 					case sf::Event::MouseButtonPressed:
 					{
-						sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-						cout << mousePos.x << " " << mousePos.y << endl;
 						Game_Buttons.Click_Button(event, window,start ,finish );
-
-						break;
+						vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
+						child.set_trace_to_text(start, finish, matrix_trace);
+						if (child.is_Over_Window(window) && event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonPressed)
+						{
+							child.is_Drag();
+							break;
+						}
+						else 
+						{
+							child.is_Drop();
+							break;
+						}
 					}
 					case sf::Event::Closed:
 					{
 						window.close();
+						break;
 					}
-					}
-					if (event.key.code == sf::Keyboard::Return)// in ra xong you win you lose xong thì quay lại clear màn hình và kêu chọn menu nào main menu hay mode menu - làm thêm cái menu state 3 là hiện ra cái màn hình đó 
-					{
-						if (Game_Buttons.is_Win()) cout << "YOU WIN";
-						else
-						{
-							cout << "YOU LOSE";
-						}
-						Game_Buttons.print_matrix();
 					}
 
+					if (sf::Keyboard::isKeyPressed( sf::Keyboard::Return))
+					{
+						vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
+						queue <int> Way = Game_Buttons.get_result_trace();
+						bool is_Win = Game_Buttons.is_Win();
+						child.win_lose(start, finish, matrix_trace, Way,is_Win);
+						menu_state = 3;
+					}
+					if (child.get_is_dragging())
+					{
+						sf::Vector2f mouPos = static_cast <sf::Vector2f> (sf::Mouse::getPosition(window));
+						child.set_position(mouPos);
+						child.set_Text_Pos();
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+					{
+						menu_state = 1;
+						child.reset_is_press();
+					}
+					
+					window.clear();
 					map.drawto(window);
 					Game_Buttons.draw_buttons(window);
+					child.draw_to(window);
 					window.display();
+				}
+				if (menu_state == 3)
+				{
+					if (event.type==sf::Event::Closed)
+					{
+						window.close();
+						break;
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+					{
+						menu_state = 1;
+						child.reset_is_press();
+					}
+					window.clear();
+					map.drawto(window);
+					Game_Buttons.draw_buttons(window);
+					child.draw_to(window);
+					window.display();
+					break;
 				}
 			}
 		}
 	}
 };
-// xong menu h thi them cai back ground vao moi lv
-//cach ve hinh tron
-//hinh tron se ve o vi tri ma no nhan-done
-//tức là nó vẽ từ chỗ tọa độ mà nó nhân một cái bán kính rồi nó bắt đầu vẽ nguyên hình tròn-done
-//từ đó hình tròn tâm nó không phải là ở chỗ tọa độ mà nó nhận, tâm của nó là tọa độ mà nó nhận + thêm bán kính của nó vì thế nên hình lệch không như mong muốn-done
-// để sửa thì ta lấy tọa độ trừ đi bán kính sẽ ra được hình ngay vị trí mà mình vẽ.-done
-// h làm thêm 1 cái child screen vào phía dưới cùng của parent screen 
+//tai sao can break sau khi hien thi? neu k break thi chuong trinh se thuc hien tiep viec so sanh o phia duoi, vi du neu nay ta nhan enter thi lenh se chuyen menu_state=1 va no k co break nen no se thuc hien ngay luon cai menu_state 1 do 
+//vi the nen moi co loi giong nhu la enter bi thuc hien nhieu lan

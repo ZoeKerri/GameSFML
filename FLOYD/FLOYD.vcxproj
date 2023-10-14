@@ -149,7 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\CTRR\Floyd_SFML-main\FLOYD\mainmenu.h" />
-    <ClInclude Include="Button.h" />
     <ClInclude Include="Create_Buttons.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="GameLoop.h" />
@@ -158,6 +157,7 @@
     <ClInclude Include="menu.h" />
     <ClInclude Include="ModeMenu.h" />
     <ClInclude Include="mywindow.h" />
+    <ClInclude Include="Result_Window.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

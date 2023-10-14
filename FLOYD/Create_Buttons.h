@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include "Button.h"
 #include <fstream>
 #include <vector>
 #include "Graph.h"
@@ -8,7 +7,7 @@
 #define MEDIUM 10
 #define HARD 12
 #define RAD 13
-class Cre_Buttons : public Button
+class Cre_Buttons 
 {
 public:
 	Cre_Buttons() {};
@@ -475,24 +474,25 @@ public:
 	bool is_Win()
 	{
 		std::queue <int> Way;
+		std::vector <int> temp = matrix_trace;
 		Way = map_trace.TruyVet(start_finish.first, start_finish.second);
-		if (matrix_trace.empty()) return false;
-		if (Way.back() != matrix_trace[matrix_trace.size() - 1]) return false;
+		if (temp.empty()) return false;
+		if (Way.back() != temp[temp.size() - 1]) return false;
 		while (!Way.empty())
 		{
-			if (!(Way.front() == matrix_trace[0])) return false;// neu gia tri truy vet cua game khac gia tri tri vet cua nguoi choi thi nguoi choi thua ngay
+			if (!(Way.front() == temp[0])) return false;// neu gia tri truy vet cua game khac gia tri tri vet cua nguoi choi thi nguoi choi thua ngay
 			else
 			{
 				Way.pop();
-				matrix_trace.erase(matrix_trace.begin());
-				matrix_trace.shrink_to_fit();
-				if (Way.empty() && !matrix_trace.empty()) return false;
+				temp.erase(temp.begin());
+				temp.shrink_to_fit();
+				if (Way.empty() && !temp.empty()) return false;
 			}
 		}
-		if (Way.empty() && matrix_trace.empty()) return true;
+		if (Way.empty() && temp.empty()) return true;
 	}
 	
-	void print_matrix()//ham nay de xem gia tri cua truy vet ntn 
+	void print_matrix()
 	{
 		int size = matrix_trace.size();
 		for (int i = 0; i < size; i++)
@@ -516,6 +516,17 @@ public:
 			cout << Way.front() << " ";
 			Way.pop();
 		}
+	}
+	
+	queue <int> get_result_trace()
+	{
+		map_trace.Floyd(GG);
+		std::queue <int> Way = map_trace.TruyVet(start_finish.first, start_finish.second);
+		return Way;
+	}
+	vector <int> get_matrix_trace()
+	{
+		return matrix_trace;
 	}
 	//ta cần 1 vector của vector có 1 giá trị duy nhất là 0 tức matrix 1x1 để có thể khởi tạo class graph-done
 	// xong thì ta nhập file vào graph đó the0 level - done

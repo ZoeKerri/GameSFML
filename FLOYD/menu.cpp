@@ -14,7 +14,7 @@ Menu::Menu(float width, float height)
 
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::White);
-	menu[1].setString("Options");
+	menu[1].setString("How to play");
 	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUM_OF_ITEMS + 1) * 2));//so items cua man hinh chi co 3 thoi nen tru ra cho no nhin dep hon
 
 	menu[2].setFont(font);
