@@ -224,6 +224,7 @@ public:
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 					{
 						menu_state = 1;
+						Game_Buttons.reset_matrix_trace();
 						child.reset_is_press();
 					}
 					window.clear();

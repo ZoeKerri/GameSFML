@@ -150,6 +150,7 @@ public:
 		result.setPosition(childwindow.getPosition().x, childwindow.getPosition().y + text.getGlobalBounds().height / 2);
 	}
 
+
 private:
 	sf::RectangleShape childwindow;
 	sf::Text text;

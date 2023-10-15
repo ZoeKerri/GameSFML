@@ -528,6 +528,11 @@ public:
 	{
 		return matrix_trace;
 	}
+
+	void reset_matrix_trace()
+	{
+		matrix_trace.clear();
+	}
 	//ta cần 1 vector của vector có 1 giá trị duy nhất là 0 tức matrix 1x1 để có thể khởi tạo class graph-done
 	// xong thì ta nhập file vào graph đó the0 level - done
 	// tiếp tục, ta truy vết gía trị của nó và giá trị truy vết là queue - done
