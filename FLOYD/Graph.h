@@ -25,12 +25,15 @@ public:
 	{
 		queue<int> Way;
 		int tmp = u;
-		while (tmp != v)
+		if (Length[u - 1][v - 1] != vc)
 		{
-			Way.push(tmp);
-			tmp = LuuVet[tmp-1][v-1];// luư vết chứa các giá trị truy vết của ma trận, hàm này sẽ coi khi nao giá trị cuối bằng với giá trị truy vết thì dừng
+			while (tmp != v)
+			{
+				Way.push(tmp);
+				tmp = LuuVet[tmp - 1][v - 1];// luư vết chứa các giá trị truy vết của ma trận, hàm này sẽ coi khi nao giá trị cuối bằng với giá trị truy vết thì dừng
+			}
+			Way.push(v);
 		}
-		Way.push(v);
 		return Way;
 	}
 	void Floyd(vector<vector<int>>Matrix_Weight) // Thuật toán Floyd
