@@ -23,6 +23,8 @@ public:
 		pair <int, int> start_finish;
 		int start = start_finish.first;
 		int finish = start_finish.second;
+		sf::Event empty_event;
+		empty_event.type = sf::Event::EventType::MouseMoved;
 		while (window.isOpen())
 		{
 			sf::Event event;
@@ -73,14 +75,10 @@ public:
 								break;
 							}
 							}
-
 						}
 						}
 					}
 					}
-					window.clear();
-					Menu.draw(window);
-					window.display();
 					break;
 				}
 				if (menu_state == 1)
@@ -148,12 +146,9 @@ public:
 							break;
 						}
 						}
-
 					}
 					}
-					window.clear();
-					ModeMenu.drawto(window);
-					window.display();
+					break;
 				}
 				if (menu_state == 2)//hien map va cac button vao day
 				{
@@ -207,19 +202,12 @@ public:
 						menu_state = 1;
 						child.reset_is_press();
 					}
-					
-					window.clear();
-					map.drawto(window);
-					Game_Buttons.draw_buttons(window);
-					child.draw_to(window);
-					window.display();
 				}
 				if (menu_state == 3)
 				{
 					if (event.type==sf::Event::Closed)
 					{
 						window.close();
-						break;
 					}
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 					{
@@ -227,16 +215,41 @@ public:
 						Game_Buttons.reset_matrix_trace();
 						child.reset_is_press();
 					}
-					window.clear();
-					map.drawto(window);
-					Game_Buttons.draw_buttons(window);
-					child.draw_to(window);
-					window.display();
-					break;
 				}
 			}
+			window.clear();
+			switch (menu_state)
+			{
+			case 0:
+			{
+				Menu.draw(window);
+				break;
+			}
+			case 1:
+			{
+				ModeMenu.drawto(window);
+				break;
+			}
+			case 2:
+			{
+				map.drawto(window);
+				Game_Buttons.draw_buttons(window);
+				child.draw_to(window);
+				break;
+			}
+			case 3:
+			{
+				map.drawto(window);
+				Game_Buttons.draw_buttons(window);
+				child.draw_to(window);
+				break;
+			}
+			default: break;
+			}
+			window.display();
 		}
 	}
+	
 };
 //tai sao can break sau khi hien thi? neu k break thi chuong trinh se thuc hien tiep viec so sanh o phia duoi, vi du neu nay ta nhan enter thi lenh se chuyen menu_state=1 va no k co break nen no se thuc hien ngay luon cai menu_state 1 do 
 //vi the nen moi co loi giong nhu la enter bi thuc hien nhieu lan
