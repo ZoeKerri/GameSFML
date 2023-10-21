@@ -11,7 +11,7 @@ public:
 	void gameloop()
 	{
 		int menu_state = 0;//chuyen doi giua cac trang thai menu: main, mode va vao gameplay
-		sf::RenderWindow window(sf::VideoMode(1260, 800), "The ", sf::Style::Close | sf::Style::Titlebar);
+		sf::RenderWindow window(sf::VideoMode(1260, 800), "I'm Lost. ", sf::Style::Close | sf::Style::Titlebar);
 		window.setFramerateLimit(30);
 		Menu Menu(window.getSize().x, window.getSize().y);
 		ModeMenu ModeMenu(window.getSize().x, window.getSize().y);
@@ -40,7 +40,7 @@ public:
 						window.close();
 						break;
 					}
-					case::sf::Event::KeyReleased:
+					case::sf::Event::KeyPressed:
 					{
 						switch (event.key.code)// .code thì chứa dữ liệu dạng enum trong sf::keyboard còn .scancode là thuộc dạng nguyên nó chỉ các phím trên bàn phím như WASD
 						{
@@ -90,7 +90,7 @@ public:
 						window.close();
 						break;
 					}
-					case::sf::Event::KeyReleased:
+					case::sf::Event::KeyPressed:
 					{
 						switch (event.key.code)// .code thì chứa dữ liệu dạng enum trong sf::keyboard còn .scancode là thuộc dạng nguyên nó chỉ các phím trên bàn phím như WASD
 						{
@@ -145,6 +145,11 @@ public:
 							child.set_trace_to_text(start, finish, matrix_trace);
 							break;
 						}
+						case sf::Keyboard::Escape:
+						{
+							menu_state = 0;
+							break;
+						}
 						}
 					}
 					}
@@ -162,7 +167,7 @@ public:
 					}
 					case sf::Event::MouseButtonPressed:
 					{
-						Game_Buttons.Click_Button(event, window,start ,finish );
+						Game_Buttons.Click_Button(event, window, start, finish);
 						vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
 						child.set_trace_to_text(start, finish, matrix_trace);
 						if (child.is_Over_Window(window) && event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonPressed)
@@ -170,7 +175,7 @@ public:
 							child.is_Drag();
 							break;
 						}
-						else 
+						else
 						{
 							child.is_Drop();
 							break;
@@ -181,30 +186,38 @@ public:
 						window.close();
 						break;
 					}
+					case sf::Event::KeyPressed:
+					{
+						switch (event.key.code)
+						{
+						case sf::Keyboard::Return:
+						{
+							vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
+							queue <int> Way = Game_Buttons.get_result_trace();
+							bool is_Win = Game_Buttons.is_Win();
+							child.win_lose(start, finish, matrix_trace, Way, is_Win);
+							menu_state = 3;
+							break;
+						}
+						case sf::Keyboard::Escape:
+						{
+							menu_state = 1;
+							break;
+						}
+						}
+					}
 					}
 
-					if (sf::Keyboard::isKeyPressed( sf::Keyboard::Return))
-					{
-						vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
-						queue <int> Way = Game_Buttons.get_result_trace();
-						bool is_Win = Game_Buttons.is_Win();
-						child.win_lose(start, finish, matrix_trace, Way,is_Win);
-						menu_state = 3;
-					}
 					if (child.get_is_dragging())
 					{
 						sf::Vector2f mouPos = static_cast <sf::Vector2f> (sf::Mouse::getPosition(window));
 						child.set_position(mouPos);
 						child.set_Text_Pos();
 					}
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-					{
-						menu_state = 1;
-						child.reset_is_press();
-					}
+					break;
 				}
 				if (menu_state == 3)
-				{
+				{//phan nay dung if tai vi no chi co 2 phan thoi no kha la ngan nen khong can phai dung switch case chi
 					if (event.type==sf::Event::Closed)
 					{
 						window.close();
