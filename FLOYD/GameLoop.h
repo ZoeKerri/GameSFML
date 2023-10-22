@@ -148,6 +148,7 @@ public:
 						case sf::Keyboard::Escape:
 						{
 							menu_state = 0;
+							ModeMenu.reset_selected_item_index();
 							break;
 						}
 						}
@@ -170,16 +171,12 @@ public:
 						Game_Buttons.Click_Button(event, window, start, finish);
 						vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
 						child.set_trace_to_text(start, finish, matrix_trace);
-						if (child.is_Over_Window(window) && event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonPressed)
+						if (child.is_Over_Window(window))
 						{
-							child.is_Drag();
+							child.change_Status();
 							break;
 						}
-						else
-						{
-							child.is_Drop();
-							break;
-						}
+						break;
 					}
 					case sf::Event::Closed:
 					{
@@ -202,6 +199,9 @@ public:
 						case sf::Keyboard::Escape:
 						{
 							menu_state = 1;
+							Game_Buttons.reset_matrix_trace();
+							Game_Buttons.reset_is_Click();
+							ModeMenu.reset_selected_item_index();
 							break;
 						}
 						}
@@ -227,6 +227,8 @@ public:
 						menu_state = 1;
 						Game_Buttons.reset_matrix_trace();
 						child.reset_is_press();
+						Game_Buttons.reset_is_Click();
+						ModeMenu.reset_selected_item_index();
 					}
 				}
 			}

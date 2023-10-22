@@ -124,14 +124,10 @@ public:
 		}
 	}
 
-	void is_Drag()
+	void change_Status()
 	{
-		is_dragging = true;
-	}
-
-	void is_Drop()
-	{
-		is_dragging = false;
+		if (is_dragging) is_dragging = false;
+		else is_dragging = true;
 	}
 
 	int get_is_dragging()

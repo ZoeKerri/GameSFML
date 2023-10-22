@@ -1,2 +1,42 @@
-﻿  menu.cpp
+﻿  FLOYD.cpp
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Function.h(25,15): warning C4018: '<=': signed/unsigned mismatch
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mywindow.h(214,55): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\mywindow.h(315,56): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\UI.h(260,39): warning C4267: 'argument': conversion from 'size_t' to 'short', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(16,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(16,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(21,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(21,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(26,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(26,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(31,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(31,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(36,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(36,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(41,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(41,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(46,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(46,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(51,98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(51,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(56,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\ModeMenu.h(56,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(89,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(89,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(110,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(110,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(130,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(130,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(16,49): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(16,29): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\FLOYD.cpp(10,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(493): warning C4715: 'Cre_Buttons::is_Win': not all control paths return a value
   FLOYD.vcxproj -> E:\HK3- HUIT\Floyd_SFML-main\Debug\FLOYD.exe

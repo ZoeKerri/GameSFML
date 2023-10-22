@@ -59,39 +59,31 @@ public:
 	}
 	void moveup()
 	{
-		if (selected_item_index > 0)//menu main bat dau tu 0
-		{
-			menu[selected_item_index].setFillColor(sf::Color::White);
-			selected_item_index--;
-			menu[selected_item_index].setFillColor(sf::Color::Red);
-		}
+		menu[selected_item_index].setFillColor(sf::Color::White);
+		selected_item_index--;
+		if (selected_item_index < 0) selected_item_index = 8;
+		menu[selected_item_index].setFillColor(sf::Color::Red);
 	}
 	void movedown()
 	{
-		if (selected_item_index < 8)//menu main bat dau tu 0
-		{
-			menu[selected_item_index].setFillColor(sf::Color::White);
-			selected_item_index++;
-			menu[selected_item_index].setFillColor(sf::Color::Red);
-		}
+		menu[selected_item_index].setFillColor(sf::Color::White);
+		selected_item_index++;
+		if (selected_item_index > 8) selected_item_index = 0;
+		menu[selected_item_index].setFillColor(sf::Color::Red);
 	}
 	void moveleft()
 	{
-		if (selected_item_index - 3 >= 0)
-		{
-			menu[selected_item_index].setFillColor(sf::Color::White);
-			selected_item_index-=3;
-			menu[selected_item_index].setFillColor(sf::Color::Red);
-		}
+		menu[selected_item_index].setFillColor(sf::Color::White);
+		selected_item_index -= 3;
+		if (selected_item_index < 0) selected_item_index += 9;
+		menu[selected_item_index].setFillColor(sf::Color::Red);
 	}
 	void moveright()
 	{
-		if (selected_item_index + 3 <=8)
-		{
-			menu[selected_item_index].setFillColor(sf::Color::White);
-			selected_item_index += 3;
-			menu[selected_item_index].setFillColor(sf::Color::Red);
-		}
+		menu[selected_item_index].setFillColor(sf::Color::White);
+		selected_item_index += 3;
+		if (selected_item_index >8) selected_item_index -=9;
+		menu[selected_item_index].setFillColor(sf::Color::Red);
 	}
 	void drawto(sf::RenderWindow& window)
 	{
@@ -103,6 +95,13 @@ public:
 	int get_item_index()
 	{
 		return selected_item_index;
+	}
+
+	void reset_selected_item_index()
+	{
+		menu[selected_item_index].setFillColor(sf::Color::White);
+		selected_item_index = 0;
+		menu[selected_item_index].setFillColor(sf::Color::Red);
 	}
 private:
 	sf::Text menu[MAX_NUMS_OF_LEVEL];
