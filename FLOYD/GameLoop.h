@@ -202,6 +202,7 @@ public:
 							Game_Buttons.reset_matrix_trace();
 							Game_Buttons.reset_is_Click();
 							ModeMenu.reset_selected_item_index();
+							child.set_position(sf::Vector2f(window.getSize().x / 2, 50));//50 la vi da dat origin y la 50 roi 
 							break;
 						}
 						}
@@ -211,7 +212,7 @@ public:
 					if (child.get_is_dragging())
 					{
 						sf::Vector2f mouPos = static_cast <sf::Vector2f> (sf::Mouse::getPosition(window));
-						child.set_position(mouPos);
+						child.set_position_mouse(mouPos);
 						child.set_Text_Pos();
 					}
 					break;
@@ -229,6 +230,7 @@ public:
 						child.reset_is_press();
 						Game_Buttons.reset_is_Click();
 						ModeMenu.reset_selected_item_index();
+						child.set_position(sf::Vector2f(window.getSize().x / 2, 50));
 					}
 				}
 			}

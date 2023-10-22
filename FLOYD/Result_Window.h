@@ -116,14 +116,21 @@ public:
 		return false;
 	}
 
-	void set_position(sf::Vector2f mouse_pos)
+	void set_position_mouse(sf::Vector2f mouse_pos)
 	{
 		if (is_dragging)
 		{
 			childwindow.setPosition(mouse_pos);
 		}
 	}
-
+	
+	void set_position(sf::Vector2f pos)
+	{
+		childwindow.setPosition(pos);
+		text.setPosition(childwindow.getPosition().x - childwindow.getSize().x / 2 + text.getGlobalBounds().width, childwindow.getPosition().y - childwindow.getSize().y / 2 + text.getGlobalBounds().height);
+		text.setOrigin(text.getLocalBounds().width, text.getLocalBounds().height);
+		result.setPosition(childwindow.getPosition().x, childwindow.getPosition().y + text.getGlobalBounds().height / 2);
+	}
 	void change_Status()
 	{
 		if (is_dragging) is_dragging = false;
@@ -147,6 +154,61 @@ public:
 	}
 
 
+	void set_how_to_play_screen_win_lose(int start, int end, std::vector <int> matrix_trace, queue <int> result_trace, bool is_win)
+	{
+		is_press = 1;//dung de hien you win you lose
+		string start_point = to_string(start);
+		string end_point = to_string(end);
+		text.setString("Click Left mouse to move \t Click Right mouse to cancel\nPress Enter to get your result\n\Press ESC to return to menu\nYou can move you move by click the box and click again to drop it\nYou need to go from " + start_point + " to " + end_point + "\nYour trace:");
+		int your_trace_size = matrix_trace.size();
+		string trace = text.getString();
+		int result_trace_size = result_trace.size();
+		queue<int> temp = result_trace;
+		for (int i = 0; i < your_trace_size; i++)
+		{
+			if (i == 0) trace += to_string(matrix_trace[i]);
+			else
+			{
+				trace += "->" + to_string(matrix_trace[i]);
+			}
+		}
+		trace += "\nThe result:";
+		for (int i = 0; i < result_trace_size; i++)
+		{
+			if (i == 0)
+			{
+				trace += to_string(temp.front());
+				temp.pop();
+
+			}
+			else
+			{
+				trace += "->" + to_string(temp.front());
+				temp.pop();
+			}
+		}
+		text.setString(trace);
+		if (is_win)
+		{
+			result.setFont(font);
+			result.setFillColor(sf::Color::Red);
+			result.setCharacterSize(20);
+			result.setString("YOU WIN");
+			result.setPosition(childwindow.getPosition().x, childwindow.getPosition().y + text.getGlobalBounds().height / 2);
+			//neu muon can trai thi tru giong ben y
+			result.setOrigin(result.getLocalBounds().width / 2, result.getLocalBounds().height / 2);
+		}
+		else
+		{
+			result.setFont(font);
+			result.setFillColor(sf::Color::Red);
+			result.setCharacterSize(20);
+			result.setString("YOU LOSE");
+			result.setPosition(childwindow.getPosition().x, childwindow.getPosition().y + text.getGlobalBounds().height / 2);
+			//neu muon can trai thi tru giong ben y
+			result.setOrigin(result.getLocalBounds().width / 2, result.getLocalBounds().height / 2);
+		}
+	}
 private:
 	sf::RectangleShape childwindow;
 	sf::Text text;
