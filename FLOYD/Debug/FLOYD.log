@@ -27,6 +27,37 @@ E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(110,63): warning C4244: 'arg
 E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(110,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(130,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Create_Buttons.h(130,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(63,18): warning C4129: 'P': unrecognized character escape sequence
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(237,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(237,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(238,56): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(238,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(243,31): warning C4244: 'return': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\Result_Window.h(247,31): warning C4244: 'return': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
 E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(16,49): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
@@ -37,7 +68,12 @@ E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(16,29): warning C4244: 'argument':
           [
               T=unsigned int
           ]
-E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(205,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(86,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(86,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -46,7 +82,26 @@ E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(205,59): warning C4244: 'argument'
           [
               T=float
           ]
-E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(233,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(236,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(236,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(270,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HK3- HUIT\Floyd_SFML-main\FLOYD\GameLoop.h(270,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int

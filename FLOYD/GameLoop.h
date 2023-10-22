@@ -10,7 +10,7 @@ class GameLoop {
 public:
 	void gameloop()
 	{
-		int menu_state = 0;//chuyen doi giua cac trang thai menu: main, mode va vao gameplay
+		int menu_state = 0;//0 la main menu,1 la mode menu,2 la gameplay,3 la ket qua, 4 la huong dan choi,5 la ket qua huong dan choi
 		sf::RenderWindow window(sf::VideoMode(1260, 800), "I'm Lost. ", sf::Style::Close | sf::Style::Titlebar);
 		window.setFramerateLimit(30);
 		Menu Menu(window.getSize().x, window.getSize().y);
@@ -19,7 +19,8 @@ public:
 		Cre_Buttons Game_Buttons;
 		sf::Font font;
 		font.loadFromFile("arial.ttf");
-		Result_Window child(400, 100, window.getSize().x/2, 50, 15, font, sf::Color::White, sf::Color::Black);//400,100 la kich thuoc childwindow, 50 la vi tri cua y dang le la 0 nhung co setorigin nen phai dat la 50
+		Result_Window child(400, 100, window.getSize().x/2, 50, 15, font, sf::Color::White, sf::Color::Black);//400,100 la kich thuoc childwindow
+		//50 la mot nua cua chieu cao cua child, neu chieu cao child doi thi con so 50 cung thay doi
 		pair <int, int> start_finish;
 		int start = start_finish.first;
 		int finish = start_finish.second;
@@ -65,8 +66,25 @@ public:
 							}
 							case 1:
 							{
-								// đây là hướng dẫn - ta sẽ hiển thị cách chơi ở đây 
-								std::cout << "Options button is pressed" << std::endl;
+								menu_state = 4;//menu_state 4 la demo chuong trinh
+								map.get_level_index(0);
+								map.set_map();
+								Game_Buttons.set_item_index(0);
+								Game_Buttons.get_Easy_Mode_Butons_Pos();
+								Game_Buttons.set_Mode_Buttons(15, font, sf::Color::White, sf::Color::Black, window);//set button o day, 15 la kich co chu
+								Game_Buttons.init_is_Click();
+								Game_Buttons.init_mode_game_trace();
+								Game_Buttons.set_Start_Finish();
+								pair <int, int> start_finish = Game_Buttons.get_start_finish();
+								start = start_finish.first;
+								finish = start_finish.second;
+								Game_Buttons.set_Mode_Matrix();
+								vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
+								child.set_trace_to_text_demo(start, finish, matrix_trace);
+								child.resize(700, 200);
+								child.set_Text_Pos();
+								child.set_position(sf::Vector2f(window.getSize().x/2, child.get_height() / 2));//o day lay window.getsize()/2 de ve o vi tri chinh giua window
+								//con child.get_height/2 la do dat origin la bang mot nua chieu cao cua child r nen h ta can ve o mot nua chieu cao cua child moi ra hinh ta muon
 								break;
 							}
 							case 2://exit
@@ -143,6 +161,7 @@ public:
 							Game_Buttons.set_Mode_Matrix();
 							vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
 							child.set_trace_to_text(start, finish, matrix_trace);
+							child.resize(400, 100);
 							break;
 						}
 						case sf::Keyboard::Escape:
@@ -156,7 +175,7 @@ public:
 					}
 					break;
 				}
-				if (menu_state == 2)//hien map va cac button vao day
+				if (menu_state == 2 || menu_state == 4)//hien map va cac button vao day
 				{
 					
 					switch (event.type)
@@ -170,6 +189,8 @@ public:
 					{
 						Game_Buttons.Click_Button(event, window, start, finish);
 						vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
+						if (menu_state == 4) child.set_trace_to_text_demo(start, finish, matrix_trace);
+						else
 						child.set_trace_to_text(start, finish, matrix_trace);
 						if (child.is_Over_Window(window))
 						{
@@ -192,17 +213,31 @@ public:
 							vector <int> matrix_trace = Game_Buttons.get_matrix_trace();
 							queue <int> Way = Game_Buttons.get_result_trace();
 							bool is_Win = Game_Buttons.is_Win();
-							child.win_lose(start, finish, matrix_trace, Way, is_Win);
-							menu_state = 3;
+							if (menu_state == 4) {
+								child.win_lose_demo(start, finish, matrix_trace, Way, is_Win);
+								menu_state = 5;
+							}
+							else
+							{
+								child.win_lose(start, finish, matrix_trace, Way, is_Win);
+								menu_state = 3;
+							}
 							break;
 						}
 						case sf::Keyboard::Escape:
 						{
+							if (menu_state == 4) menu_state = 0;
+							else
 							menu_state = 1;
 							Game_Buttons.reset_matrix_trace();
 							Game_Buttons.reset_is_Click();
 							ModeMenu.reset_selected_item_index();
-							child.set_position(sf::Vector2f(window.getSize().x / 2, 50));//50 la vi da dat origin y la 50 roi 
+							child.resize(400, 100);
+							child.set_position(sf::Vector2f(window.getSize().x / 2, child.get_height()/2));
+							if (child.get_is_dragging())
+							{
+								child.change_Status();
+							}
 							break;
 						}
 						}
@@ -217,7 +252,7 @@ public:
 					}
 					break;
 				}
-				if (menu_state == 3)
+				if (menu_state == 3 || menu_state == 5)
 				{//phan nay dung if tai vi no chi co 2 phan thoi no kha la ngan nen khong can phai dung switch case chi
 					if (event.type==sf::Event::Closed)
 					{
@@ -225,12 +260,15 @@ public:
 					}
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 					{
-						menu_state = 1;
+						if (menu_state == 5) menu_state = 0;
+						else menu_state = 1;
 						Game_Buttons.reset_matrix_trace();
 						child.reset_is_press();
 						Game_Buttons.reset_is_Click();
 						ModeMenu.reset_selected_item_index();
-						child.set_position(sf::Vector2f(window.getSize().x / 2, 50));
+						child.resize(400, 100);
+						child.set_position(sf::Vector2f(window.getSize().x / 2, child.get_height() / 2));
+						break;
 					}
 				}
 			}
@@ -255,6 +293,20 @@ public:
 				break;
 			}
 			case 3:
+			{
+				map.drawto(window);
+				Game_Buttons.draw_buttons(window);
+				child.draw_to(window);
+				break;
+			}
+			case 4:
+			{
+				map.drawto(window);
+				Game_Buttons.draw_buttons(window);
+				child.draw_to(window);
+				break;
+			}
+			case 5:
 			{
 				map.drawto(window);
 				Game_Buttons.draw_buttons(window);
