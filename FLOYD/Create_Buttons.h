@@ -305,6 +305,7 @@ public:
 					if (buttons[i].getFillColor() == sf::Color::Yellow && buttons[i].getGlobalBounds().contains(static_cast <float> (mousePos.x), static_cast <float> (mousePos.y)))
 					{
 						int trace = i + 1;
+						if (is_Contain_Value(trace)) break;
 						is_Click[i] = 1;
 						matrix_trace.push_back(trace);
 						break;
@@ -318,6 +319,7 @@ public:
 					if (buttons[i].getFillColor() == sf::Color::Yellow && buttons[i].getGlobalBounds().contains(static_cast <float> (mousePos.x), static_cast <float> (mousePos.y)))
 					{
 						int trace = i + 1;
+						if (is_Contain_Value(trace)) break;
 						is_Click[i] = 1;
 						matrix_trace.push_back(trace);
 						break;
@@ -331,6 +333,7 @@ public:
 					if (buttons[i].getFillColor() == sf::Color::Yellow && buttons[i].getGlobalBounds().contains(static_cast <float> (mousePos.x), static_cast <float> (mousePos.y)))
 					{
 						int trace = i + 1;
+						if (is_Contain_Value(trace)) break;
 						is_Click[i] = 1;
 						matrix_trace.push_back(trace);
 						break;
